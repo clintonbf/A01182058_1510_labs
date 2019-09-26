@@ -1,4 +1,4 @@
-def calculate_digit (num, base):
+def calculate_digit(num, base):
     """
     Calculate a digit in a decimal-to-base-n conversion.
 
@@ -11,35 +11,35 @@ def calculate_digit (num, base):
     return num % base
 
 
-def calculate_divisor (num, base):
+def calculate_divisor(num, base):
     """
     Calculate the divisor in a decimal-to-base-n conversion.
 
     :param num: int, starting number
     :param base: the new base
     :precondition: both arguments are positive integers, base != 10
-    :postcondition: divisor for the next conversion calculation
+    :postcondition: int which can be used as divisor for a subsequent conversion calculation
     :return: int
     """
 
     return num // base
 
 
-def combine_digits (num1, num2, num3, num4):
+def combine_digits(num_1, num_2, num_3, num_4):
     """
     Concatenate supplied arguments in reverse order.
 
-    :param num1: int
-    :param num2: int
-    :param num3: int
-    :param num4: int
+    :param num_1: int
+    :param num_2: int
+    :param num_3: int
+    :param num_4: int
     :precondition: all arguments are positive integers
-    :precondition: arguments are supplied in the reverse-order (ie. num1 is the right-most digit)
+    :precondition: arguments are supplied in the reverse-order (ie. num_1 is the most significant digit)
     :postcondition: string-concatenation of the arguments
     :return: string
     """
 
-    return str(num4) + str(num3) + str(num2) + str(num1)
+    return str(num_4) + str(num_3) + str(num_2) + str(num_1)
 
 
 def base_conversion():
@@ -69,7 +69,7 @@ def base_conversion():
     num_to_convert = int(input("So, give me a number that is less than " + str(max_dec_size) + ": "))
 
     # start by dividing num_to_convert by dest_base
-    rem_1 = calculate_digit(num_to_convert, dest_base)  # this will be the right-most digit in the conversion
+    rem_1 = calculate_digit(num_to_convert, dest_base)  # this will be the least-significant digit in the conversion
     quo_1 = calculate_divisor(num_to_convert, dest_base)
 
     #  for the next digit, divide the quotient from the first division by dest_base (etc, etc)

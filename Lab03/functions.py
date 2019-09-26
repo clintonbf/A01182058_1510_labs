@@ -16,7 +16,7 @@ def single_roll(number_of_sides):
 
 def roll_die(number_of_rolls, number_of_sides):
     """
-    Sum all performed die rolls.
+    Calculate sum of  die rolls.
 
     :param number_of_rolls: int
     :param number_of_sides: int
@@ -29,19 +29,21 @@ def roll_die(number_of_rolls, number_of_sides):
     invalid_arg = False
     roll_sum = 0
 
+    # Check both arguments, either one of them being 0 should return a 0
     if number_of_rolls == 0:
         invalid_arg = True
 
     if number_of_sides == 0:
         invalid_arg = True
 
+    # If both arguments are > 0, roll and sum
     if invalid_arg:
         roll_sum = 0
     else:
         roll_sum = single_roll(number_of_sides)  # Since we know there's at least 1 roll, no need to enclose in an "if"
         number_of_sides = number_of_sides - 1
 
-        # Rules are < 4 rolls, so subtraction will manage the iteration-size
+        # Rules are < 4 rolls, so subtraction will suffice to manage the iteration-size
         if number_of_sides:
             roll_sum = roll_sum + single_roll(number_of_sides)
             number_of_sides = number_of_sides - 1
@@ -61,6 +63,7 @@ def pick_letter():
     :return: string
     """
 
+    # [97 - 122] = [a - z]
     return chr(random.randint(97, 122))
 
 
@@ -85,7 +88,7 @@ def create_name(length):
 
         if length:
             return_value = return_value + pick_letter()
-            length = length - 1
+            length = length - 1  # We can use subtractions to mimic iterative behaviour, since length < 6
 
         if length:
             return_value = return_value + pick_letter()
@@ -121,7 +124,7 @@ def main():
     print("Test, 4: '" + create_name(4) + "'")
     print("Test, 2: '" + create_name(2) + "'")
     print("Test, 5: '" + create_name(5) + "'")
-    print("Test, 6: '" + create_name(-1) + "'") # This will throw a runtime error
+    print("Test, 6: '" + create_name(-1) + "'")  # This will throw a runtime exception
 
 
 if __name__ == "__main__":
