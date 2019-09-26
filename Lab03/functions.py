@@ -53,6 +53,57 @@ def roll_die(number_of_rolls, number_of_sides):
     return roll_sum
 
 
+def pick_letter():
+    """
+    Generate a random lowercase letter.
+
+    :postcondition: a single, lowercase letter generated
+    :return: string
+    """
+
+    return chr(random.randint(97, 122))
+
+
+def create_name(length):
+    """
+    Concatenate randomly generated letters.
+
+    :param length: int
+    :precondition: length is integer
+    :precondition: 0 < length < 6
+    :postcondition: a string of letters, length characters long
+    :return: string
+    """
+
+    return_value = ""
+
+    if length < 0:
+        return_value = None
+    else:
+        return_value = pick_letter()
+        length = length - 1
+
+        if length:
+            return_value = return_value + pick_letter()
+            length = length - 1
+
+        if length:
+            return_value = return_value + pick_letter()
+            length = length - 1
+
+        if length:
+            return_value = return_value + pick_letter()
+            length = length - 1
+
+        if length:
+            return_value = return_value + pick_letter()
+            length = length - 1
+
+        return_value = return_value.title()
+
+    return return_value
+
+
 def main():
     print("Test: 3, 6")
     print(str(roll_die(3, 6)))
@@ -62,6 +113,15 @@ def main():
     print(str(roll_die(3, 0)))
     print("Test: 0, 0")
     print(str(roll_die(0, 0)))
+
+    print("###############################")
+    print("Testing create_name()")
+    print("###############################")
+
+    print("Test, 4: '" + create_name(4) + "'")
+    print("Test, 2: '" + create_name(2) + "'")
+    print("Test, 5: '" + create_name(5) + "'")
+    print("Test, 6: '" + create_name(-1) + "'") # This will throw a runtime error
 
 
 if __name__ == "__main__":
