@@ -99,7 +99,7 @@ def convert_to_roman_hundreds(num):
         return_value = "CCC"
     elif num == 2:
         return_value = "CC"
-    elif int == 1:
+    elif num == 1:
         return_value = "C"
     else:
         return_value = ""
@@ -197,6 +197,8 @@ def main():
     # print("Test (5000): '" + convert_to_roman_numeral(5000) + "'")
     # print("Test (5050): '" + convert_to_roman_numeral(5050) + "'")
     # print("Test (499): '" + convert_to_roman_numeral(499) + "'")
+    # print("Test (100): '" + convert_to_roman_numeral(100) + "'")
+    # print("Test (10): '" + convert_to_roman_numeral(10) + "'")
 
     doctest.testmod()
 

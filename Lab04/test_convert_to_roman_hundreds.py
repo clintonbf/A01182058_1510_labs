@@ -17,3 +17,6 @@ class TestConvert_to_roman_hundreds(TestCase):
 
     def test_convert_to_roman_hundreds_eq_9(self):
         self.assertEqual(roman_numbers.convert_to_roman_hundreds(9), "CM")
+
+    def test_convert_to_roman_hundreds_eq_1(self):
+        self.assertEqual(roman_numbers.convert_to_roman_hundreds(1), "C")
