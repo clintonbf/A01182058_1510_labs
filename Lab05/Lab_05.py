@@ -14,6 +14,7 @@ def single_roll(number_of_sides):
     return random.randint(1, number_of_sides)
 
 
+# noinspection DuplicatedCode
 def roll_die(number_of_rolls, number_of_sides):
     """
     Calculate sum of  die rolls.
@@ -27,7 +28,6 @@ def roll_die(number_of_rolls, number_of_sides):
     """
 
     invalid_arg = False
-    roll_sum = 0
 
     # Check both arguments, either one of them being 0 should return a 0
     if number_of_rolls == 0:
@@ -194,34 +194,23 @@ def print_character(character):
     :return: none
     """
 
-    print("Behold, the mighty ")
-    print(character[0])
+    print("Behold! I am the mighty ")
+    name = ""
+    for i in range(len(character[0])):
+        name = name + character[0][i]
 
+    print(name.title() + " - scourge of a place with an equally incomprehensible name.")
 
-def main():
-    print("###########EXECUTING###########")
+    print("My uproarious abilities:")
+    for i in range(1, len(character)):
+        ability = ""  # an outer-loop string will stay in scope after the inner loop, for formatting and then printing.
 
-    my_list = []
+        for j in range(len(character[i])):
+            if j == 1:
+                add_colon = ":"
+            else:
+                add_colon = ""
 
-    # which_to_run = random.randint(1, 3)
-    # if which_to_run == 1:
-    #     print("Case 1")
-    #     my_list = choose_inventory(["rapier", "longsword", "sidesword", "dagger", "buckler", "baton", "cloak"], 8)
-    # elif which_to_run == 2:
-    #     print("Case 2")
-    #     my_list = choose_inventory(["rapier", "longsword", "sidesword", "dagger", "buckler", "baton", "cloak"], -1)
-    # elif which_to_run == 3:
-    #     print("Case 3")
-    # my_list = choose_inventory(["rapier", "longsword", "sidesword", "dagger", "buckler", "baton", "cloak"], 7)
-    # print(my_list)
+            ability = ability + add_colon + " " + str(character[i][j])
 
-    print("*************NEXT******************")
-    # print(generate_name(5))
-
-    print("**************FINALLY***************")
-    char = create_character(8)
-    print_character(char)
-
-
-if __name__ == "__main__":
-    main()
+        print(ability.strip() + "!")
