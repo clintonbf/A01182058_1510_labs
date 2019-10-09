@@ -162,9 +162,7 @@ def create_character(name_length):
     :return: list
     """
 
-    the_character = []
-
-    the_character.append(generate_name(name_length))
+    the_character = generate_name(name_length)
 
     # create our attributes
     str_list = ["Strength", roll_die(3, 6)]
