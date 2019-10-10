@@ -228,8 +228,8 @@ def print_character(character):
 
         print(ability.strip() + "!")
 
-        if len(character) > 7:
-            print("I have chosen these marvellous pieces of equipment:")
+    if len(character) > 7:
+        print("I have chosen these marvellous pieces of equipment:")
 
-            for eq in range(0, len(character[7])):
-                print(character[7][eq])
+        for eq in range(0, len(character[7])):
+            print(character[7][eq])
