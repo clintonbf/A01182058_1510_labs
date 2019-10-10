@@ -79,19 +79,20 @@ def choose_inventory(inventory, selection):
         elif selection == len(inventory):
             gear_taken = sorted(inventory)
         else:
-            iteration_count = 0
-            for i in range(0, selection):
-                gear_choice = random.choice(inventory)
-
-                if iteration_count > (selection * 5):
-                    i = selection  # we've been at this long enough; break out
-                    gear_taken.append("My hat fell off so I short-changed you.")
-                else:
-                    if gear_choice in gear_taken:
-                        i = (i - 1)  # decrement i because we couldn't take this gear
-                        iteration_count = (iteration_count + 1)
-                    else:
-                        gear_taken.append(gear_choice)
+            gear_taken = random.choices(inventory, selection)
+            # iteration_count = 0  # Using this to manage to maximum number of iterations
+            # for i in range(0, selection):
+            #     gear_choice = random.choice(inventory)
+            #
+            #     if iteration_count > (selection * 5):
+            #         i = selection  # we've been at this long enough; break out
+            #         gear_taken.append("My hat fell off so I short-changed you.")
+            #     else:
+            #         if gear_choice in gear_taken:
+            #             i = (i - 1)  # decrement i because we couldn't take this gear
+            #             iteration_count = (iteration_count + 1)
+            #         else:
+            #             gear_taken.append(gear_choice)
 
     return sorted(gear_taken)
 
