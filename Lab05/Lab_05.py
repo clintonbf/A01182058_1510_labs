@@ -79,20 +79,20 @@ def choose_inventory(inventory, selection):
         elif selection == len(inventory):
             gear_taken = sorted(inventory)
         else:
-            gear_taken = random.choices(inventory, selection)
-            # iteration_count = 0  # Using this to manage to maximum number of iterations
-            # for i in range(0, selection):
-            #     gear_choice = random.choice(inventory)
-            #
-            #     if iteration_count > (selection * 5):
-            #         i = selection  # we've been at this long enough; break out
-            #         gear_taken.append("My hat fell off so I short-changed you.")
-            #     else:
-            #         if gear_choice in gear_taken:
-            #             i = (i - 1)  # decrement i because we couldn't take this gear
-            #             iteration_count = (iteration_count + 1)
-            #         else:
-            #             gear_taken.append(gear_choice)
+            # gear_taken = random.choices(inventory, selection)
+            iteration_count = 0  # Using this to manage to maximum number of iterations
+            for i in range(0, selection):
+                gear_choice = random.choice(inventory)
+
+                if iteration_count > (selection * 5):
+                    i = selection  # we've been at this long enough; break out
+                    gear_taken.append("My hat fell off so I short-changed you.")
+                else:
+                    if gear_choice in gear_taken:
+                        i = (i - 1)  # decrement i because we couldn't take this gear
+                        iteration_count = (iteration_count + 1)
+                    else:
+                        gear_taken.append(gear_choice)
 
     return sorted(gear_taken)
 
@@ -153,17 +153,35 @@ def generate_name(syllables):
     return syllable_list
 
 
+def assemble_name(name_syllables):
+    """
+    Assemble syllables of into a string
+    :param name_syllables: list
+    :postcondition: concatenate name_syllables and uppercase the first letter
+    :return: string
+
+    >>> assemble_name(["ca", "la", "ia", "na", "ta"])
+    'Calaianata'
+    """
+
+    name = ""
+    for i in range(len(name_syllables)):
+        name = name + name_syllables[i]
+
+    return name.title()
+
+
 def create_character(name_length):
     """
     Generate a DnD character.
 
     :param name_length: int
     :precondition: name_length is int, > 0
-    :postcondition: DnD character with attributes and name
+    :postcondition: DnD character with attributes and name (7 elements)
     :return: list
     """
 
-    the_character = generate_name(name_length)
+    the_character = [assemble_name(generate_name(name_length))]
 
     # create our attributes
     str_list = ["Strength", roll_die(3, 6)]
@@ -193,12 +211,7 @@ def print_character(character):
     :return: none
     """
 
-    print("Behold! I am the mighty ")
-    name = ""
-    for i in range(len(character[0])):
-        name = name + character[0][i]
-
-    print(name.title() + " - scourge of a place with an equally incomprehensible name.")
+    print("Behold! I am the mighty " + character[0] + " - scourge of a place with an equally incomprehensible name.")
 
     print("My uproarious abilities:")
     for i in range(1, len(character)):
