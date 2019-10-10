@@ -146,12 +146,12 @@ def generate_name(syllables):
     :return: list
     """
 
-    syllable_list = []
+    name = ""
 
     for i in range(0, syllables):
-        syllable_list.append(generate_syllable())
+        name = name + generate_syllable()
 
-    return syllable_list
+    return name
 
 
 def assemble_name(name_syllables):
