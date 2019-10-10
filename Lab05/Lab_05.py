@@ -90,9 +90,10 @@ def choose_inventory(inventory, selection):
                 else:
                     if gear_choice in gear_taken:
                         i = (i - 1)  # decrement i because we couldn't take this gear
-                        iteration_count = (iteration_count + 1)
                     else:
                         gear_taken.append(gear_choice)
+
+                iteration_count = (iteration_count + 1)
 
     return sorted(gear_taken)
 
@@ -214,7 +215,7 @@ def print_character(character):
     print("Behold! I am the mighty " + character[0] + " - scourge of a place with an equally incomprehensible name.")
 
     print("My uproarious abilities:")
-    for i in range(1, len(character)):
+    for i in range(1, 6):
         ability = ""  # an outer-loop string will stay in scope after the inner loop, for formatting and then printing.
 
         for j in range(len(character[i])):
@@ -226,3 +227,9 @@ def print_character(character):
             ability = ability + add_colon + " " + str(character[i][j])
 
         print(ability.strip() + "!")
+
+        if len(character) > 7:
+            print("I have chosen these marvellous pieces of equipment:")
+
+            for eq in range(0, len(character[7])):
+                print(character[7][eq])
