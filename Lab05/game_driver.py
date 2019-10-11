@@ -17,7 +17,8 @@ def main():
 
     print('####################')
 
-    items_list = ["Rapier", "Broadsword", "Vorpal sword", "The constrictor", "A newt"]
+    items_list = ["Rapier", "Broadsword", "Vorpal sword", "The constrictor", "A newt", "giant spoon", "icingdeath",
+                  "bag of holding", "boomstick", "stabstick"]
 
     eq_count = input("********** " + character[0] + ", I have " + str(
         len(items_list)) + " items for you! But, they're secret. How many you would like?**********\n ")
