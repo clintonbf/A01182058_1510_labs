@@ -25,6 +25,10 @@ def roll_die(number_of_rolls, number_of_sides):
     :precondition: number_of_sides > 0
     :postcondition: calculate the sum of all the rolls
     :return: int
+    >>> roll_die(0, 1)
+    0
+    >>> roll_die(1, 0)
+    0
     """
 
     invalid_arg = False
