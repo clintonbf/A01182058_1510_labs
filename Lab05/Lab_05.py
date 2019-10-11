@@ -164,7 +164,7 @@ def create_character(name_length):
 
     :param name_length: int
     :precondition: name_length is int, > 0
-    :postcondition: DnD character with attributes and name (7 elements)
+    :postcondition: DnD character with a name & attributes (7 elements)
     :return: list
     """
 
