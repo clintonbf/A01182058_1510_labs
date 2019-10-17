@@ -1,34 +1,52 @@
-def sparse_add(sp_1, sp_2):
+import doctest
+
+
+def sparse_add(sparse_1, sparse_2):
     """
     Adds 2 sparse vectors.
 
-    :param sp_1:
-    :param sp_2:
+    :param sparse_1: sparse vector
+    :param sparse_2: sparse vector
+    :precondition: sparse_1 contains integers
+    :precondition: sparse_2 contains integers
+    :postcondition: sparse_1 and sparse_2 are summed
     :return: dictionary
+
+    >>> sparse_add({1: 1, 2: 2, 3: 3}, {1: 1, 2: 2, 3: 3})
+    {1: 2, 2: 4, 3: 6}
+    >>> sparse_add({}, {1: 1, 2: 2, 3: 3})
+    {1: 1, 2: 2, 3: 3}
     """
 
-    ret_dict = {}
+    return_dictionary = {}
     found_keys = {}
 
-    for quay in sp_1.key():
-        # check to see if this key exists in sp_2
-
+    for elem in sparse_1.keys():
         addition = 0
 
-        if sp_2[quay] < 0:
-            addition = sp_2[quay]  # Use an addition variable so that we can treat sp_1[quay] properly
-            found_keys[quay] = 1
+        if elem in sparse_2:
+            found_keys[elem] = 1
+            addition = sparse_2[elem]  # An addition value will save us a couple lines
 
-        ret_dict[quay] = sp_1[quay] + addition
-
-    for quay2 in sp_2.key():
-        if found_keys[quay2]:
-            pass  # this key was found already
+            if sparse_1[elem] + addition == 0:
+                pass
+            else:
+                return_dictionary[elem] = sparse_1[elem] + addition
         else:
-            ret_dict[quay2] = sp_2[quay2]
+            return_dictionary[elem] = sparse_1[elem] + addition
 
-    return ret_dict
+    for elem in sparse_2.keys():
+        if elem in found_keys:
+            pass  # this keys was found already
+        else:
+            return_dictionary[elem] = sparse_2[elem]
+
+    return return_dictionary
 
 
 def main():
-    pass
+    doctest.testmod()
+
+
+if __name__ == '__main__':
+    main()
