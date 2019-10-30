@@ -1,4 +1,5 @@
 import random
+import doctest
 
 
 def list_tagger(batch):
@@ -147,7 +148,6 @@ def die_thing():
 
 def main():
     pass
-
 
 if __name__ == '__main__':
     main()
