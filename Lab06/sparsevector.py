@@ -3,7 +3,7 @@ import doctest
 
 def sparse_add(sparse_1, sparse_2):
     """
-    Adds 2 sparse vectors.
+    Add 2 sparse vectors.
 
     :param sparse_1: sparse vector
     :param sparse_2: sparse vector
@@ -37,7 +37,7 @@ def sparse_add(sparse_1, sparse_2):
 
     for elem in sparse_2.keys():
         if elem in found_keys:
-            pass  # this keys was found already
+            pass  # this key was found in the check with sparse_1
         else:
             return_dictionary[elem] = sparse_2[elem]
 
