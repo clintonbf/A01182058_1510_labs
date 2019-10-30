@@ -17,9 +17,9 @@ def list_tagger(batch):
     list_length = len(batch)
 
     if list_length > 0:
-        return batch.insert(0, list_length)
-    else:
-        return []
+        batch.insert(0, list_length)
+
+    return batch
 
 
 def main():
