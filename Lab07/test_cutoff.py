@@ -15,13 +15,12 @@ class TestCutoff(TestCase):
 
         self.assertEqual(my_count, 0)
 
-    # TROUBLE HERE
-    def test_cutoff_0_in_list_and_0(self):  # condition iii
+    def test_cutoff_0_in_list_and_0(self):  # condition iii                        # TROUBLE HERE!!!
         my_count = cutoff([0], 0)
 
-        self.assertEqual(my_count, 1)
+        self.assertEqual(my_count, 1)  # Div by 0 error (just like vii)
 
-    # POSSIBLE LOGIC ERROR: is 0 a multiple of 5?
+    # POSSIBLE LOGIC ERROR: is 0 a multiple of 5?                                 # TROUBLE HERE!!!
     def test_cutoff_0_in_list_and_5(self):
         my_count = cutoff([0], 5)
 
@@ -34,13 +33,13 @@ class TestCutoff(TestCase):
 
     # number of integers in the list that are a multiple of divisor
     # "is 2 a multiple of 4?" NO But 4 is a multiple of 2!!!
+    # NO ISSUE HERE
     def test_cutoff_one_element_2_and_cutoff_4(self):  # condition vi
         my_count = cutoff([2], 4)
 
         self.assertEqual(my_count, 0)
 
-    # TROUBLE HERE!!!
-    def test_cutoff_five_element_and_cutoff_0(self):  # condition vii
+    def test_cutoff_five_element_and_cutoff_0(self):  # condition vii              # TROUBLE HERE!!!
         # my_count = cutoff([1, 2, 3, 4, 5], 0)
 
         self.assertRaises(cutoff([1, 2, 3, 4, 5], 0), ZeroDivisionError)

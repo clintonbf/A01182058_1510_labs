@@ -71,7 +71,6 @@ def prepender(str_list, s):
         str_list[i] = s + str_list[i]
 
 
-# Can you doctest functions that take input?  <------------------------------------------
 def name_list():
     """
     Create a dictionary of counts of each letter supplied from a list of names.
