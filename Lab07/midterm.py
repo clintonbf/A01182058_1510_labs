@@ -31,7 +31,7 @@ def cutoff(a_list, divisor):
     :param divisor: integer
     :precondition: a_list is a list
     :precondition: divisor is an integer
-    :precondition: divisor >= 0
+    :precondition: divisor > 0
     :postcondition: number of integers in the list that are a multiple of divisor
     :return: integer
 
@@ -44,6 +44,9 @@ def cutoff(a_list, divisor):
     """
 
     count = 0
+
+    if divisor == 0:
+        return 0
 
     for num in a_list:
         if num % divisor == 0:

@@ -15,10 +15,10 @@ class TestCutoff(TestCase):
 
         self.assertEqual(my_count, 0)
 
-    def test_cutoff_0_in_list_and_0(self):  # condition iii                        # TROUBLE HERE!!!
+    def test_cutoff_0_in_list_and_0(self):  # condition iii
         my_count = cutoff([0], 0)
 
-        self.assertEqual(my_count, 1)  # Div by 0 error (just like vii)
+        self.assertEqual(my_count, 0)
 
     def test_cutoff_0_in_list_and_5(self):
         my_count = cutoff([0], 5)
@@ -38,10 +38,10 @@ class TestCutoff(TestCase):
 
         self.assertEqual(my_count, 0)
 
-    def test_cutoff_five_element_and_cutoff_0(self):  # condition vii              # TROUBLE HERE!!!
-        # my_count = cutoff([1, 2, 3, 4, 5], 0)
+    def test_cutoff_five_element_and_cutoff_0(self):  # condition vii
+        my_count = cutoff([1, 2, 3, 4, 5], 0)
 
-        self.assertRaises(cutoff([1, 2, 3, 4, 5], 0), ZeroDivisionError)
+        self.assertEqual(my_count, 0)
 
     def test_cutoff_some_elements_are_multiples(self):
         my_count = cutoff([1, 2, 3, 4, 5], 2)
