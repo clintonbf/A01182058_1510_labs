@@ -20,7 +20,6 @@ class TestCutoff(TestCase):
 
         self.assertEqual(my_count, 1)  # Div by 0 error (just like vii)
 
-    # POSSIBLE LOGIC ERROR: is 0 a multiple of 5?                                 # TROUBLE HERE!!!
     def test_cutoff_0_in_list_and_5(self):
         my_count = cutoff([0], 5)
 
