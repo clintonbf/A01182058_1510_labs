@@ -123,6 +123,7 @@ def multiples_of_3(upper_bound):
     return summation
 
 
+# What are the DJEs here?
 def die_thing():
     """
     Roll a die several times and tally the results.
@@ -138,7 +139,7 @@ def die_thing():
     for i in range(0, rolls):
         roll = random.randint(1, sides)
 
-    die_rolls[roll] += 1
+        die_rolls[roll] += 1
 
     print("Here's what I rolled:")
 
@@ -148,6 +149,7 @@ def die_thing():
 
 def main():
     pass
+
 
 if __name__ == '__main__':
     main()
