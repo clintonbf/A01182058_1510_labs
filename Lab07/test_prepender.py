@@ -11,12 +11,12 @@ class TestPrepender(TestCase):
 
         self.assertEqual(lst, [])
 
-    def test_prepender_empty_list_string(self):  # ii               TROUBLE HERE: ERROR here, function may need re-code
+    def test_prepender_empty_list_string(self):  # ii
         lst = []
 
         midterm.prepender(lst, "Python")
 
-        self.assertEqual(lst[0], "Python")
+        self.assertEqual(len(lst), 0)
 
     def test_prepender_list_length_one_empty_string(self):
         lst = ["Python"]

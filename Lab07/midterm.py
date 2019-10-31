@@ -70,8 +70,9 @@ def prepender(str_list, s):
     ['foobar', 'foofighters']
     """
 
-    for i in range(0, len(str_list)):
-        str_list[i] = s + str_list[i]
+    if len(str_list) > 0:
+        for i in range(len(str_list)):
+            str_list[i] = s + str_list[i]
 
 
 def name_list():
