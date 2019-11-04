@@ -29,10 +29,10 @@ def create_character() -> dict:
     :return: dictionary
 
     >>> create_character()
-    {'x-cord': 0, 'y-cord': 0}
+    {'x-coord': 0, 'y-coord': 0}
     """
 
-    return {'x-cord': 0, 'y-cord': 0}
+    return {'x-coord': 0, 'y-coord': 0}
 
 
 def get_movement() -> str:
