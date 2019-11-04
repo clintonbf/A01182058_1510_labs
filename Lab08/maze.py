@@ -85,13 +85,13 @@ def did_user_hit_a_wall(direction: str, character: dict) -> bool:
     :postcondition: determine whether valid movement direction ran into a wall
     :return: bool
 
-    >>>did_user_hit_a_wall(n, {'x-coord':0, 'y-coord': 3})
+    >>>did_user_hit_a_wall(n, {'x-coord': 0, 'y-coord': 3})
     False
-    >>>did_user_hit_a_wall(n, {'x-coord':0, 'y-coord': 0})
+    >>>did_user_hit_a_wall(n, {'x-coord': 0, 'y-coord': 0})
     True
-    >>>did_user_hit_a_wall(e, {'x-coord':4, 'y-coord': 3})
+    >>>did_user_hit_a_wall(e, {'x-coord': 4, 'y-coord': 3})
     True
-    >>>did_user_hit_a_wall(e, {'x-coord':0, 'y-coord': 3})
+    >>>did_user_hit_a_wall(e, {'x-coord': 0, 'y-coord': 3})
     False
     """
 
@@ -168,13 +168,60 @@ def move_char(direction: str, character: dict):
         character['x-coord'] -= 1
 
 
+def reached_end(character: dict) -> bool:
+    """
+    Check if player is still in maze.
+
+    :param character: dictionary
+    :precondition: direction is a single character in [n, s, w, e]
+    :precondition: character is a dictionary
+    :precondition: character contains key "x-coord"
+    :precondition: character contains key "y-coord"
+    :precondition: -1 > x-coord < 5
+    :precondition: -1 > y-coord < 5
+    :postcondition: determines if this nightmare has ended
+    :return: bool
+
+    >>>reached_end({'x-coord': 0, 'y-coord': 3})
+    True
+    >>>reached_end({'x-coord': 4, 'y-coord': 4})
+    False
+    """
+
+    if character['x-coord'] == 4 and character['y-coord'] == 4:
+        return True
+    else:
+        return False
+
+
 def game():
-    create_board()
+    kafka_box = create_board()
+    rat = create_character()
+
+    still_in_box = True
+
+    while still_in_box:
+        movement = get_movement()
+
+        while not validate_movement(movement):
+            advise_of_movement_error(1)
+            movement = get_movement()
+
+        if did_user_hit_a_wall(movement, rat):
+            still_in_box = True
+            advise_of_movement_error(2)
+        else:
+            move_char(movement, rat)
+            print("You're now at (" + str(rat['x-coord']) + "," + str(rat['y-coord']) + ")")
+
+            if reached_end(rat):
+                still_in_box = False
+
+    print("You have escaped!")
 
 
 def main():
-    # game()
-    print(create_character())
+    game()
 
 
 if __name__ == '__main__':
