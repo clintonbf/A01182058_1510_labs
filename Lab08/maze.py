@@ -1,4 +1,4 @@
-def create_board():
+def create_board() -> list:
     """
     Create a 5 x 5 game board
 
@@ -21,7 +21,7 @@ def create_board():
     return game_board
 
 
-def create_character():
+def create_character() -> dict:
     """
     Create a player.
 
@@ -35,15 +35,42 @@ def create_character():
     return {'x-cord': 0, 'y-cord': 0}
 
 
-def get_movement():
-    pass
+def get_movement() -> str:
+    """
+    Get movement direction from user.
+
+    :postcondition: movement direction obtained
+    :return: string
+    """
+
+    return input("Which direction do you want to go (n, s, e, w)?")
 
 
-def validate_movement():
-    pass
+def validate_movement(direction: str) -> bool:
+    """
+    Validate users movement choice.
+
+    :param direction: string
+    :precondition: direction in [n, s, w, e]
+    :return: bool
+
+    >>>validate_movement('n')
+    True
+    >>>validate_movement(1)
+    False
+    >>>validate_movement('north')
+    False
+    >>>validate_movement('g')
+    False
+    """
+
+    if direction.lower() in ['n', 's', 'e', 'w']:
+        return True
+    else:
+        return False
 
 
-def move_char():
+def move_char(direction: int):
     pass
 
 
