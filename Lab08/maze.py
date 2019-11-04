@@ -117,6 +117,27 @@ def did_user_hit_a_wall(direction: str, character: dict) -> bool:
             return False
 
 
+def advise_of_movement_error(error: int):
+    """
+    Notify user they made an invalid movement.
+
+    :param error: int
+    :precondition: error is 1 if invalid movement option was provided
+    :precondition: error is 2 if user hit a wall
+    :postcondition: a helpful message is produced
+
+    >>>advise_of_movement_error(1)
+    "Invalid movement option. Please enter again (n, s, w, e)"
+    >>>advise_of_movement_error(2)
+    "You hit a wall; ouch. Try a different direction(n, s, w, e)"
+    """
+
+    if error == 1:
+        print("Invalid movement option. Please enter again (n, s, w, e)")
+    elif error == 2:
+        print("You hit a wall; ouch. Try a different direction(n, s, w, e)")
+
+
 def move_char(direction: int):
     pass
 
