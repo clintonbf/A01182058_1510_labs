@@ -217,7 +217,7 @@ def game():
             if reached_end(rat):
                 still_in_box = False
 
-    print("You have escaped!")
+    print("You have escaped! Have some cheese.")
 
 
 def main():
