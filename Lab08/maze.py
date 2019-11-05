@@ -56,7 +56,7 @@ def validate_move(direction: str) -> bool:
 
     >>>validate_move('n')
     True
-    >>>validate_move(1)
+    >>>validate_move('1')
     False
     >>>validate_move('north')
     False
@@ -85,13 +85,13 @@ def did_user_hit_a_wall(direction: str, character: dict) -> bool:
     :postcondition: determine whether valid movement direction ran into a wall
     :return: bool
 
-    >>>did_user_hit_a_wall(n, {'x-coord': 0, 'y-coord': 3})
+    >>>did_user_hit_a_wall('n', {'x-coord': 0, 'y-coord': 3})
     False
-    >>>did_user_hit_a_wall(n, {'x-coord': 0, 'y-coord': 0})
+    >>>did_user_hit_a_wall('n', {'x-coord': 0, 'y-coord': 0})
     True
-    >>>did_user_hit_a_wall(e, {'x-coord': 4, 'y-coord': 3})
+    >>>did_user_hit_a_wall('e', {'x-coord': 4, 'y-coord': 3})
     True
-    >>>did_user_hit_a_wall(e, {'x-coord': 0, 'y-coord': 3})
+    >>>did_user_hit_a_wall('e', {'x-coord': 0, 'y-coord': 3})
     False
     """
 
@@ -199,6 +199,10 @@ def game():
     rat = create_character()
 
     still_in_box = True
+
+    print("You find youself in this little box. The man has put you there, as he has every day for as long as you "
+          " can remember.")
+    print("Well..... another day, another hoop, another cheese. It's a living.")
 
     while still_in_box:
         movement = get_movement()
