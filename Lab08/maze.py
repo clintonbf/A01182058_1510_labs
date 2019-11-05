@@ -46,7 +46,7 @@ def get_movement() -> str:
     return input("Which direction do you want to go (n, s, e, w)?")
 
 
-def is_movement_valid(direction: str) -> bool:
+def validate_move(direction: str) -> bool:
     """
     Validate users movement choice.
 
@@ -54,13 +54,13 @@ def is_movement_valid(direction: str) -> bool:
     :precondition: direction in [n, s, w, e]
     :return: bool
 
-    >>>is_movement_valid('n')
+    >>>validate_move('n')
     True
-    >>>is_movement_valid(1)
+    >>>validate_move(1)
     False
-    >>>is_movement_valid('north')
+    >>>validate_move('north')
     False
-    >>>is_movement_valid('g')
+    >>>validate_move('g')
     False
     """
 
@@ -203,7 +203,7 @@ def game():
     while still_in_box:
         movement = get_movement()
 
-        while not is_movement_valid(movement):
+        while not validate_move(movement):
             advise_of_movement_error(1)
             movement = get_movement()
 
