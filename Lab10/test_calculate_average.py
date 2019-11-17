@@ -8,4 +8,4 @@ class TestCalculate_average(TestCase):
         self.assertEqual(calculate_average([1, 2, 3]), 2)
 
     def test_calculate_average_with_repeating_decimal(self):
-        self.assertEqual(calculate_average([3, 3, 4]), 3.33)
+        self.assertEqual(calculate_average([3, 3, 4]), 3.3)

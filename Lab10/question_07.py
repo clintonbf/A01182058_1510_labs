@@ -27,19 +27,19 @@ def calculate_average(lst: list) -> float:
     :precondition:  every item in the list is an int
     :precondition: lst has > 0 items
     :precondition: lst items > 0
-    :postcondition: sum of list items is calculated to 2 decimal places
+    :postcondition: sum of list items is calculated to 1 decimal places
     :return: float
 
     >>> calculate_average([1, 2, 3])
     2
     >>> calculate_average([1, 2, 55])
-    19.33
+    19.3
     """
 
-    return round(sum(lst) / len(lst), 2)
+    return round(sum(lst) / len(lst), 1)
 
 
-def old_main():
+def main():
     # Input loop
     new_item = input("Enter food item to add, or ’q’ to exit: ")
     while new_item != "q":
@@ -63,7 +63,7 @@ def old_main():
         new_item = input("Enter food item to add, or ’q’ to exit: ")
 
 
-def main():
+def old_main():
     print("\nFood Items:", sorted(_calories.keys()))
     output_calorie_sum(_calories.values())
 
