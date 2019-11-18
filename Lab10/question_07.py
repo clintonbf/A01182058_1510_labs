@@ -13,20 +13,20 @@ def set_up_food_list() -> dict:
             "yogurt": 145, "beef": 240, "chicken": 140, "butter": 102}
 
 
-def output_calorie_sum(lst: list):
+def output_calorie_sum(dic: dict):
     """
     Sum all the items in a list.
 
-    :param lst: a list of integers
-    :precondition:  every item in the list is an int
-    :precondition: lst has > 0 items
-    :precondition: lst items > 0
-    :postcondition: sum of list items is calculated and output
+    :param dic: a dictionary
+    :precondition:  every value in dic is an int
+    :precondition: dic has > 0 items
+    :precondition: dic values > 0
+    :postcondition: sum of dic values is calculated and output
 
-    >>> output_calorie_sum([1, 2])
+    >>> output_calorie_sum({'a': 1, 'b':2})
     Total calories: 3
     """
-    print("Total calories:", sum(lst))
+    print("Total calories:", sum(list(dic.values())))
 
 
 def calculate_average(lst: list) -> float:
@@ -95,7 +95,7 @@ def main():
 
         print("\nFood Items:", sorted(calories.keys()))
 
-        output_calorie_sum(list(calories.values()))
+        output_calorie_sum(calories)
 
         print("Average calories: ", calculate_average(list(calories.values())))
 
