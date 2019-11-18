@@ -86,10 +86,11 @@ def old_main():
 
 def main():
     calories = set_up_food_list()
+
     new_item = request_food_item()
 
     while new_item != "q":
-        new_item_calories = int(input("Enter calories for " + new_item + ": "))
+        new_item_calories = int(input("How many calories is " + new_item + "?"))
         calories[new_item] = new_item_calories
 
         print("\nFood Items:", sorted(calories.keys()))
