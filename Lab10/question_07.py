@@ -29,24 +29,24 @@ def output_calorie_sum(dic: dict):
     print("Total calories:", sum(list(dic.values())))
 
 
-def calculate_average(lst: list) -> float:
+def calculate_average(dic: dict) -> float:
     """
     Caluclate average of a list.
 
-    :param lst: a list of integers
-    :precondition:  every item in the list is an int
-    :precondition: lst has > 0 items
-    :precondition: lst items > 0
-    :postcondition: sum of list items is calculated to 1 decimal places
+    :param dic: dictionary
+    :precondition:  every value in dic is an int
+    :precondition: dic has > 0 items
+    :precondition: dic values > 0
+    :postcondition: average of dic values is calculated to 1 decimal places
     :return: float
 
-    >>> calculate_average([1, 2, 3])
+    >>> calculate_average({'a': 1, 'b': 2, 'c': 3})
     2
-    >>> calculate_average([1, 2, 55])
+    >>> calculate_average({'a': 1, 'b': 2, 'c': 55})
     19.3
     """
 
-    return round(sum(lst) / len(lst), 1)
+    return round(sum(dic.values()) / len(dic.values()), 1)
 
 
 def request_food_item() -> str:
@@ -97,7 +97,7 @@ def main():
 
         output_calorie_sum(calories)
 
-        print("Average calories: ", calculate_average(list(calories.values())))
+        print("Average calories: ", calculate_average(calories))
 
         new_item = request_food_item()
 
