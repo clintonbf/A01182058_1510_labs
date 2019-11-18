@@ -96,7 +96,6 @@ def main():
 
         print("\nFood Items:", sorted(calories.keys()))
 
-        sum_calories(calories)
         print("Total calories: ", sum_calories(calories))
 
         print("Average calories: ", calculate_average(calories))
