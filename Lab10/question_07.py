@@ -18,10 +18,11 @@ def sum_calories(dic: dict) -> int:
     Sum all the values in a dictionary.
 
     :param dic: a dictionary
-    :precondition:  every value in dic is an int
-    :precondition: dic has > 0 items
+    :precondition: every value in dic is an int
+    :precondition: dic is non-empty
     :precondition: dic values > 0
     :postcondition: sum of dic values is calculated and output
+    :return: int
 
     >>> sum_calories({'a': 1, 'b':2})
     3
@@ -31,11 +32,11 @@ def sum_calories(dic: dict) -> int:
 
 def calculate_average(dic: dict) -> float:
     """
-    Caluclate average of a list.
+    Calculate average of a list.
 
     :param dic: dictionary
     :precondition:  every value in dic is an int
-    :precondition: dic has > 0 items
+    :precondition: dic is non-empty
     :precondition: dic values > 0
     :postcondition: average of dic values is calculated to 1 decimal places
     :return: float
