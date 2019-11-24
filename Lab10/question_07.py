@@ -27,7 +27,7 @@ def sum_calories(dic: dict) -> int:
     >>> sum_calories({'a': 1, 'b':2})
     3
     """
-    return sum(list(dic.values()))
+    return sum(dic.values())
 
 
 def calculate_average(dic: dict) -> float:
