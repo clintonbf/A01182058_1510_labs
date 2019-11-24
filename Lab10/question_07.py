@@ -38,7 +38,7 @@ def calculate_average(dic: dict) -> float:
     :precondition:  every value in dic is an int
     :precondition: dic is non-empty
     :precondition: dic values > 0
-    :postcondition: average of dic values is calculated to 1 decimal places
+    :postcondition: average of dic values is calculated to 1 decimal place
     :return: float
 
     >>> calculate_average({'a': 1, 'b': 2, 'c': 3})
